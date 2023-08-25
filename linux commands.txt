@@ -1,0 +1,182 @@
+linux syntax: command arugument  , command option arugument
+          EX:   ls     file.txt  ,   ls     -l     file.txt
+
+NOTE:linux commands are "lower case senstive"
+
+1.date
+2.cal - calander
+ex: cal -y,cal 1990,cal jan,cal -3,
+3.clear
+4.exit
+
+1)"ls command"
+i).ls = list of files in directory
+ii)ls -l = every detail of contents of directory(ex:filetype,who created,file no,when it was craeted)
+iii).i)ls -la = long listing files including hidden files(the file start with dot(.) files
+iv)ls -ld = long listing  every detail of contents of directory(ex:filetype,who created,file no,when it was craeted)
+
+2)"pwd command"
+i)pwd = present working directory
+
+3)"cd command"
+
+i)cd .. = it will go back to previous directory 1 step
+ii)cd ../.. =  it will go back to previous directory 2 steps
+iii)cd = change next directory
+iv)cd venkaiah/hanmandlu/rajesh kumar/devamshi,manasvit = change to next and next and next direcotory
+v) cd  = jumping to user direcoty from any place
+vi)cd - =jumping to last working direcortory.
+ 
+4)"touch command"
+  i)touch file = to create file without data
+ ii)touch file1 file2 = to create two files at a time(file1 ,file2 created)
+iii)touch {1..5}.txt = to create  5 files at a time 1.txt 2.txt 3.txt 4.txt 5.txt 
+
+6)"cat command"
+  i)cat > file2 = to create file with data(to save file CTRL+Z)
+ ii).cat file2  = to view information in file
+iii).cat >> file2 = to edit the file
+
+7)"mkdir command"
+ i)mkdir file1 = to create new folder or dierecotory(file1 created)
+ii)mkdir file1 file2 = to create two folders at a time(file1 ,file2 created)
+iii)mkdir {1..5}.Sai = to create  5 dir at a time 1.Sai 2.Sai 3.Sai 4.Sai 5.Sai 
+ iv)mkdir -p file1/file2/file3 = it will create file1 then file2 in file1 then file3 in file2
+
+8)"cp command"
+ i)cp file1.txt file2.txt = file1 will be copied to file2
+ii)cp -r file1/ file2 = file1 dir will be copied to file2 dir
+
+9)"mv command"
+ i)mv file1 file25("existed file") =  file1 will be moved to file2
+ii)mv file1 file2("Non-existed file") = file1 will be renmaed as file2
+
+10)"rm command"
+ i)rm = to delete the only files
+ii)rm -r =  to delete only directory
+
+NOTE:rm *.txt,rm *.mp3,rm *.jpg .....everything will be deleted with having extension after dot(.)
+
+
+11)"vi command" = to edit,view,write completly
+
+  I) i = INESRT ANY DATA INTO FILE
+ II) Esc = TO GET OUT FROM file
+III) :wq = to exit from "with" changes in file
+ IV) :q! = to exit from "without" changes in file
+
+12)"sudo -i command" = will directly jump into root user
+
+13)"logout command" = logout from user
+
+14)"vim command"
+ I) i = INESRT ANY DATA INTO FILE
+ II) Esc = TO GET OUT FROM file
+III) :wq = to exit from "with" changes in file
+ IV) :q! = to exit from "without" changes in file1
+ v) vim chintu.txt = if file was existed it will open otherwise it will create file name with "chintu.txt"
+ vi)in vim editer if we use ":%s/an/the" if we press enter and ":wq" 
+ output: "an" word will replace with "the" word
+ 
+ 15)"head command"
+ i) head file.txt = it display first 10 lines of filedata with spaces
+ ii)head -5 file.txt =  it display first 5 lines of filedata with spaces
+ 
+ 16)"tail command"
+ i) tail file.txt = it display last 10 lines of file with spaces
+ ii)tail -5 file.txt =  it display first 5 lines of filedata with spaces
+ 
+ 17)"more command"
+ i) more file.txt = first it display some content then if press Enter it display more content if we keep on press Enter
+ NOTE:depend on shell size
+ 
+ 18)"less command"
+ i) less file.txt = it wont print content but it will show content  we drag bottom/up to check content
+ if we press "q" file will be closed 
+ 
+ 19)"grep command"
+ NOTE:linux is a case senstive
+ i) grep the file.txt = it will highlight the word "the" from text with casesenstive
+ EX: the only
+ ii)grep -i the file.txt = it will highlight the word "the" from text without casesenstive
+ EX:the,THE,The,ThE,tHE
+ iii) grep -ir The = it will display the word from entire linux system without casesenstive
+ iv)  grep -r The =  it will display the word from entire linux system with casesenstive
+ 
+ 
+ 20)"pipe command" symbol------> "|" = it will take previous coomand as input
+   file.txt: The people
+             The country
+			 The state
+ 
+ i) cat file.txt | grep -i the 
+ output:it will highlight "the" word in everyline
+
+ 
+ ii) cat file.txt | grep -i the | head -1
+ output: The people
+ 
+ NOTE:PIPE COMMAND USEFUL FOR FILTERATION"
+ 
+ 21)"sed command"
+ i) sed 's/an/the/g' file.txt = it will show changes "an" word with "the" word   --------> SHOW CHNAGE
+ ii)sed -i 's/an/the/g' file.txt = it actually replace  "an" word with "the" word --------> REPLACE CHANGE
+ NOTE: COMMAND SHOULD USE WITH SINGLE INVERTED COMMA
+ 
+ 22)"awk command"
+                total        used        free      shared  buff/cache   available
+Mem:             940         209         117           0         614         585
+Swap:              0           0           0
+NOTE: IF WE USE "free -m" in linux it will display above format linux system memory
+
+i) free -m | grep -i Mem
+output:Mem:      940         209         117           0         614         585
+
+ii)free -m | grep -i Mem | awk '{print$3}'
+output:209
+NOTE: HERE awk COMMAND printed 3rd WORD IN Mem ROW
+
+iii) free -m | awk '{print$2}'
+output:used
+       209
+	   0
+23) HOW TO CRAETE A VARIABLE
+
+I) export MEMORY=`free -m | grep -i Mem | awk '{print$3}'` ----> the backtick symbol (`)
+NOTE: 209 VALUE STORED IN MEMORY VARIABLE
+
+NOTE: IF WE USE COMMAND "echo $MEMORY"------->echo used to read variable
+output:209
+
+II)  export sai="devops engineer"----->STANDARD WAY TO CREATE A VARIABLE
+     echo $CHINTU
+     OUTPUT:devops engineer
+
+24)"REDIRECTION COMMANDS"
+1)">"
+I) free -m > file.txt-------->memory information stored in "file.txt"
+II)sudo apt updade > file.txt------->memory information will be deleted and update informations stored in file.txt
+
+2)">>"
+I) free -m >> file.txt-------->memory information stored in "file.txt"
+II)sudo apt updade >> file.txt------->update information will be stored after memory information
+
+3)"2>" and "2>>"
+I) apt update 2> file.txt------>succesful update output will print in terminal and error update output stored in file.txt
+II)apt install nginx 2>>file.txt----->succesful nginx output will print in terminal and error nginx output stored after 
+error update output 
+
+4)"&>" and &>> 
+I) apt update &> file.txt------>both "update" related succesful and error output stored in file.txt 
+NOTE: IT DOESN'T PRINT OUTPUT IN TERMINAL
+
+II)apt install nginx &>>file.txt------>both "nginx" related succesful and error output stored  
+after "update" related succesful and error output 
+NOTE: IT DOESN'T PRINT OUTPUT IN TERMINAL 
+d
+
+25)"BLOCK HOLE"----> "&> /dev/null"
+I) sudo apt install nginx &> /dev/null------->here installation will be done but the output will be redirected to blockhole.
+   
+	   
+	   
